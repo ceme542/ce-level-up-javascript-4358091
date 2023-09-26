@@ -14,9 +14,22 @@
   <!-- Use this element to generate your menu -->
   <ul id="combined-menu"></ul>
 
+
   <script>
     // Write your code here
+    const menu_1 = ["pizza", "calzone", "soda", "pasta", "beer"];
+    const menu_2 = ["pasta", "grilled chicken", "steak"];
+    const menu_3 = ["water", "soda", "beer", "wine"];
+    const menu_4 = ["roast beef", "french dip", "club"];
+    const menu_set = new Set([...menu_1, ...menu_2, ...menu_3, ...menu_4]);
+    console.log(menu_set);
 
+    menuNode = document.querySelector("#combined-menu");
+    menu_set.forEach((item) => {
+      li = document.createElement("li");
+      li.textContent = item;
+      menuNode.appendChild(li);
+    });
   </script>
 </body>
 

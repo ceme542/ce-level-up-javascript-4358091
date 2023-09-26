@@ -16,6 +16,28 @@
 
   <script>
     // Write your code here
+    function* myGenerator(stops) {
+      // First starting I had the syntax all messed up and passing in stops wasn't working.
+      //  Now that it is fixed up (did a js version of this) it works
+      // const stops = ["Poughkeepsie", "Newburgh", "Peekskill", "Yonkers", "Bronx", "Grand Central"];
+      for (let i = 0; i < stops.length; i++) {
+      // i'd rather use a more modern for loop
+        yield stops[i];
+      }
+    }
+    const stops = ["Fake One", "Poughkeepsie", "Newburgh", "Peekskill", "Yonkers", "Bronx", "Grand Central"];
+    const gen = myGenerator(stops);
+    const btn = document.querySelector("#next-stop");
+    btn.addEventListener('click', function() {
+      let { value, done } = gen.next();
+      // console.log(value, done);
+      if (done) {
+        btn.disabled = true;
+        console.log("We made it!")
+      } else {
+        console.log(`The next stop is ${value}`)
+      }
+    });
 
   </script>
 </body>

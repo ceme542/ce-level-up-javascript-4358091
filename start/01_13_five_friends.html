@@ -16,6 +16,29 @@
 
   <script>
     // Write your code here
+    /* image thumbnails for 5 friends.
+    */
+    // const url = "https://randomuser.me/api/?results=5"
+    async function getUsers() {
+      const url = "https://randomuser.me/api/?results=5"
+      let response = await fetch(url);
+      let data = await response.json();
+      console.dir(data);
+      let people = data.results;
+      console.log(people);
+      let timelineNode = document.querySelector("#timeline");
+      people.forEach(friend => {
+        console.log(friend.name);
+        friendImg= document.createElement("img")
+        friendImg.src = friend.picture.thumbnail;
+        friendImg.alt = `${friend.name.first} ${friend.name.last}` 
+        timelineNode.appendChild(friendImg);
+        // src= alt=
+      });
+    }
+    getUsers();
+    
+    
     
   </script>
 </body>

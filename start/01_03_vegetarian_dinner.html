@@ -12,10 +12,16 @@
   <!-- To run this file right click the file in the navigation bar and select "Open with live server. Then open the developer tools in the browser and head to the console window."-->
 
   <!-- Use this element to render your menu -->
-  <ul id="menu"></ul>
+  <ul id="menu">
+    
+  </ul>
 
   <script>
     const menu = [
+      {
+        name: "Bruschetta",
+        isVegetarian: true
+      },
       {
         name: "Chicken parmesan",
         isVegetarian: false
@@ -34,6 +40,20 @@
       }
     ]
     // Write your code here
+    const veg_dishes = menu.filter((dish) => dish.isVegetarian);
+    console.log(veg_dishes);
+    const menu_ul = document.querySelector("#menu");
+    veg_dishes.forEach(option => {
+      let li = document.createElement("li");
+      menu_ul.appendChild(li);
+      li.textContent = option.name
+    });
+    // for (let i = 0; i < veg_dishes.length; i++) {
+    //   let li = document.createElement("li");
+    //   menu_ul.appendChild(li);
+    //   li.innerHTML = li.innerHTML + veg_dishes[i].name;
+    // }
+
 
   </script>
 </body>

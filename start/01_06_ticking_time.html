@@ -16,6 +16,22 @@
 
   <script>
     // Write your code here
+    /* use setTimeout callbacks to update dom with 
+      current hour, mins, seconds
+    */
+    // let currentDate, time;
+    function clock() {
+      clockNode = document.querySelector("#clock");
+      // time = `#${keepGoing} => ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+      
+      return setInterval(() => {
+        let currentDate = new Date();
+        let tick = currentDate.toLocaleTimeString();
+        clockNode.textContent = tick;
+      }, 1000);
+    };
+   
+    clock();
     
   </script>
 </body>

@@ -18,6 +18,49 @@
 
   <script>
     // Write your code here
+    /* change the document color on click the buttons
+      use a closure
+    */
+  
+    /* I like this solution better than the closure one,
+       considering the setup,
+       but need to do the closure exercise below */
+    // const body = document.querySelector("body")
+    // const btnBlue = document.querySelector("#blue");
+    // const btnPink = document.querySelector("#pink");
+    // const btnGreen = document.querySelector("#green");
+
+    // function changeColor() {
+    //   body.style.backgroundColor = this.id;
+    // }
+   
+    // btnBlue.addEventListener("click", changeColor);
+    // btnPink.addEventListener("click", changeColor);
+    // btnGreen.addEventListener("click", changeColor);
+
+    // /* closure solution */
+  const body = document.querySelector("body")
+  const btnBlue = document.querySelector("#blue");
+  const btnPink = document.querySelector("#pink");
+  const btnGreen = document.querySelector("#green");
+
+  function changeColor(theColor) {
+    return function() {
+      document.body.style.backgroundColor = theColor;
+    }
+  }
+
+  const changeColorBlue = changeColor('blue');
+  const changeColorPink = changeColor('pink');
+  const changeColorGreen = changeColor('green');
+
+  btnBlue.addEventListener("click", changeColorBlue);
+  btnPink.addEventListener("click", changeColorPink);
+  btnGreen.addEventListener("click", changeColorGreen);
+
+
+
+    
 
   </script>
 </body>
